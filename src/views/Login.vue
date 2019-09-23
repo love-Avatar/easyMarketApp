@@ -42,6 +42,7 @@
         border: 0;
         border-bottom: 1px solid #eee;
         font-size: 25px;
+        outline: none;
       }
     }
     button {

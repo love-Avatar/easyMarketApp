@@ -1,9 +1,16 @@
 <template>
-  <div>专题</div>
+  <div>
+    <Special/>
+  </div>
 </template>
 
 <script>
-export default {};
+import Special from "../../components/special/index.vue";
+export default {
+  components: {
+    Special
+  }
+};
 </script>
 
 <style lang="scss" scoped>

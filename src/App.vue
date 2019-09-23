@@ -4,6 +4,13 @@
   </div>
 </template>
 
+<script>
+export default {
+  created() {
+    // console.log(this.$store);
+  }
+};
+</script>
 <style lang="scss">
 * {
   margin: 0;
@@ -19,4 +26,7 @@ body,
 #app {
   overflow: hidden;
 }
+// html{
+//   font-size: calc(100/375*100vw)
+// }
 </style>

@@ -43,23 +43,27 @@ export default Vue.extend({
   flex-direction: column;
   .main {
     flex: 1;
+    overflow: scroll;
+    background: #f4f4f4;
   }
   .footer {
     height: 50px;
-    box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 -3px 10px 0 rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: space-between;
     padding: 0 10px;
     align-items: center;
+    background: white;
+    z-index: 100;
     a {
       text-decoration: none;
       text-align: center;
       width: 20%;
-      color:#333;
-      span{
+      color: #333;
+      span {
         font-size: 18px;
       }
-      p{
+      p {
         font-size: 14px;
       }
     }
