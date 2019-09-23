@@ -1,0 +1,93 @@
+{
+  "id": "1431290",
+  "name": "我的",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "2159090",
+      "name": "我的订单",
+      "font_class": "dingdan",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "3982145",
+      "name": "邀请返利",
+      "font_class": "yaoqingfanli",
+      "unicode": "e77c",
+      "unicode_decimal": 59260
+    },
+    {
+      "icon_id": "4129825",
+      "name": "我的红包",
+      "font_class": "wodehongbao",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "4163699",
+      "name": "意见反馈",
+      "font_class": "yijianfankui",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "4190231",
+      "name": "地址管理",
+      "font_class": "dizhiguanli",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "5850156",
+      "name": "会员",
+      "font_class": "huiyuan",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "6198472",
+      "name": "优惠券",
+      "font_class": "youhuiquan",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "6264431",
+      "name": "优选",
+      "font_class": "youxuan",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "7944808",
+      "name": "周末",
+      "font_class": "zhoumo",
+      "unicode": "e6b6",
+      "unicode_decimal": 59062
+    },
+    {
+      "icon_id": "8940063",
+      "name": "我的收藏",
+      "font_class": "wodeshoucang",
+      "unicode": "e700",
+      "unicode_decimal": 59136
+    },
+    {
+      "icon_id": "9446848",
+      "name": "客服-咨询",
+      "font_class": "kefu-zixun",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "9885897",
+      "name": "账户安全",
+      "font_class": "zhanghuanquan",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    }
+  ]
+}
