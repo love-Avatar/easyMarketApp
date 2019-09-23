@@ -7,13 +7,13 @@ module.exports = {
     chainWebpack: config => {
         // @scss是你取的静态资源路径别名
         config.resolve.alias
-            .set('@assets', resolve('src/assets'))
+            .set('@ast', resolve('src/assets'))
             .set('@com', resolve('src/components'))
             .set('@scss', resolve('src/scss'))//全局样式
-            .set('@service', resolve('src/service'))
+            .set('@sev', resolve('src/service'))
             .set('@utils', resolve('src/utils'))
             .set('@views', resolve('src/views'))
-            .set('@utils', resolve('src/utils'))
+            .set('@store', resolve('src/store'))
             .set('@', resolve('src'))
         // 先用@/的方式  其他的没生效
     },
