@@ -5,15 +5,62 @@
     </div>
     <div class="login-inp">
       <p>
-        <input type="text" placeholder="15323807318" />
+        <input type="text" placeholder="15323807318" v-model="mobile" />
       </p>
       <p>
-        <input type="password" />
+        <input type="password" v-model="password" />
       </p>
-      <button>登录</button>
+      <button @click="loginHandle">登录</button>
     </div>
   </div>
 </template>
+<script>
+import { mapState, mapMutations, mapActions } from "vuex";
+export default {
+  data() {
+    return {
+      mobile: "15323807318",
+      password: "123456"
+    };
+  },
+  computed: {
+    ...mapState("login", ["loginMSG"])
+    // loginMSG  的方法不data里面定义  劫持依赖里面   监听不到？？？？
+    // changeLoginInfo() {
+    //   if (this.loginMSG.errno === 0) {
+    //     alert("登陆成功");
+    //   } else {
+    //     alert("帐号或者密码错误");
+    //   }
+    //   console.log(123456789);
+    // }
+  },
+  methods: {
+    ...mapActions("login", ["login"]),
+    async loginHandle() {
+      const { mobile, password } = this;
+      const res = await this.login({ mobile, password });
+      if (res.errno === 0) {
+        alert("登陆成功");
+        this.$router.push("/home");
+      } else {
+        alert("帐号或者密码错误");
+      }
+    }
+  }
+  // watch: {
+  //   loginMSG() {
+  //     if (loginMSG.errno === 0) {
+  //       alert("登陆成功");
+  //     } else {
+  //       alert("帐号或者密码错误");
+  //     }
+  //     console.log(123456789);
+  //   },
+  //   deep: true
+  // }
+};
+</script>
 <style lang="scss">
 .login {
   width: 100%;
@@ -54,7 +101,7 @@
       background: #108ee9;
       border-radius: 5px;
       height: 47px;
-      border:0
+      border: 0;
     }
   }
 }

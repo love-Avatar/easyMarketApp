@@ -6,6 +6,7 @@ import Vuex from 'vuex';
 import login from './login';
 import home from './home';
 
+console.log(login, home)
 Vue.use(Vuex);
 const store = new Vuex.Store({
     state: {
@@ -20,8 +21,8 @@ const store = new Vuex.Store({
      * 各个模块的状态store管理
      */
     modules: {
-        login,
-        home
+        login: login,
+        home: home
     }
 });
 
