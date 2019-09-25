@@ -4,23 +4,23 @@
       <router-view></router-view>
     </div>
     <div class="footer">
-      <router-link to="/home/index">
+      <router-link tag="li" to="/home/index" >
         <span class="icon iconfont icon-yemian-copy-copy"></span>
         <p>首页</p>
       </router-link>
-      <router-link to="/home/special">
+      <router-link tag="li" to="/home/special">
         <span class="icon iconfont icon-zhuanti"></span>
         <p>专题</p>
       </router-link>
-      <router-link to="/home/classification">
+      <router-link tag="li" to="/home/classification">
         <span class="icon iconfont icon-leimupinleifenleileibie"></span>
         <p>分类</p>
       </router-link>
-      <router-link to="/home/shoping">
+      <router-link tag="li" to="/home/shoping">
         <span class="icon iconfont icon-gouwuche-copy"></span>
         <p>购物车</p>
       </router-link>
-      <router-link to="/home/my">
+      <router-link tag="li" to="/home/my">
         <span class="icon iconfont icon-wode"></span>
         <p>我的</p>
       </router-link>
@@ -55,11 +55,9 @@ export default Vue.extend({
     align-items: center;
     background: white;
     z-index: 100;
-    a {
-      text-decoration: none;
+    li {
       text-align: center;
       width: 20%;
-      color: #333;
       span {
         font-size: 18px;
       }
@@ -68,5 +66,8 @@ export default Vue.extend({
       }
     }
   }
+}
+.router-link-active {
+  color: #2196f3;
 }
 </style>

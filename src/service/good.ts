@@ -10,7 +10,7 @@ interface goodListInfo {
     page?: string,
     size?: string
 }
-export let getGoodList = (opt: goodListInfo) => {
+export let getGoodList = (opt?: goodListInfo) => {
     return request.get('/api/goods/list', { params: { ...opt } })
 }
 

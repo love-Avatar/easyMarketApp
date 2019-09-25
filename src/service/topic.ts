@@ -6,7 +6,7 @@ interface topicListInfo {
     page?: string,
     size?: string
 }
-export let getTopicList = (opt: topicListInfo) => {
+export let getTopicList = (opt?: topicListInfo) => {
     return request.get('/api/topic/list', { params: { ...opt } })
 }
 
