@@ -4,7 +4,7 @@
     <div class="nav_banner" v-if="HomePageMSG.banner">
       <swiper class="banner_container" :options="swiperOption">
         <swiperSlide class="banner_img_box" v-for="item in HomePageMSG.banner" :key="item.id">
-          <img :src="item.image_url" alt="ss" />
+          <img v-lazy="item.image_url" alt="ss" />
         </swiperSlide>
         <!-- Optional controls -->
         <div class="swiper-pagination" slot="pagination"></div>
@@ -13,18 +13,28 @@
 
     <!-- Nav -->
     <div class="nav" v-if="HomePageMSG.channel">
-      <div class="nav_item" v-for="item in HomePageMSG.channel" :key="item.id">
-        <img :src="item.icon_url" alt class="img_icon" />
+      <div
+        class="nav_item"
+        v-for="item in HomePageMSG.channel"
+        :key="item.id"
+        @click="$router.push(`/categorys/${item.id}}`)"
+      >
+        <img v-lazy="item.icon_url" alt class="img_icon" />
         <span>{{item.name}}</span>
-        <!-- url: "/pages/category/category?id=1005000" -->
       </div>
     </div>
+
     <!-- 品牌制造商直供 -->
     <div class="brand" v-if="HomePageMSG.brandList">
       <div class="title">品牌制造商直供</div>
       <div class="img_wrapper">
-        <div class="img_box" v-for="item in HomePageMSG.brandList" :key="item.id">
-          <img :src="item.new_pic_url" alt="ss" />
+        <div
+          class="img_box"
+          v-for="item in HomePageMSG.brandList"
+          :key="item.id"
+          @click="$router.push(`/brandDetail/${item.id}}`)"
+        >
+          <img v-lazy="item.new_pic_url" alt="ss" />
         </div>
       </div>
     </div>
@@ -33,8 +43,13 @@
     <div class="newgoods" v-if="HomePageMSG.newGoodsList">
       <div class="title">新品首发</div>
       <div class="img_wrapper">
-        <div class="img_box" v-for="item in HomePageMSG.newGoodsList" :key="item.id">
-          <img :src="item.list_pic_url" alt="ss" />
+        <div
+          class="img_box"
+          v-for="item in HomePageMSG.newGoodsList"
+          :key="item.id"
+          @click="$router.push(`/goods/${item.id}}`)"
+        >
+          <img v-lazy="item.list_pic_url" alt="ss" />
           <p>{{item.name}}</p>
           <li>￥{{item.retail_price}}</li>
         </div>
@@ -45,8 +60,13 @@
     <div class="hotgoods" v-if="HomePageMSG.hotGoodsList">
       <div class="title">人气推荐</div>
       <div class="img_wrapper">
-        <div class="img_box" v-for="item in HomePageMSG.hotGoodsList" :key="item.id">
-          <img :src="item.list_pic_url" alt="ss" />
+        <div
+          class="img_box"
+          v-for="item in HomePageMSG.hotGoodsList"
+          :key="item.id"
+          @click="$router.push(`/goods/${item.id}}`)"
+        >
+          <img v-lazy="item.list_pic_url" alt="ss" />
           <div class="details">
             <p>{{item.name}}</p>
             <li>{{item.goods_brief}}</li>
@@ -59,7 +79,7 @@
     <!-- 专题精选  topicList -->
     <div class="topic" v-if="HomePageMSG.topicList">
       <div class="title">专题精选</div>
-      <swiper class="banner_container" :options="swiperTopicOption">
+      <swiper class="banner_container" :options="swiperTopicOption" ref="mySwiper">
         <swiperSlide class="banner_img_box" v-for="item in HomePageMSG.topicList" :key="item.id">
           <img :src="item.item_pic_url" alt="ss" />
           <div class="footer">
@@ -78,12 +98,17 @@
       <div v-for="item in HomePageMSG.categoryList" :key="item.id">
         <div class="title">{{item.name}}</div>
         <div class="img_wrapper">
-          <div class="top_list_item" v-for="it in item.goodsList" :key="it.id">
-            <img :src="it.list_pic_url" alt="ss" />
+          <div
+            class="top_list_item"
+            v-for="it in item.goodsList"
+            :key="it.id"
+            @click="$router.push(`/goods/${item.id}}`)"
+          >
+            <img v-lazy="it.list_pic_url" alt="ss" />
             <p>{{it.name}}</p>
             <li>￥ {{it.retail_price}}</li>
           </div>
-          <div class="morelist">
+          <div class="morelist" @click="$router.push(`/categorys/${item.id}}`)">
             <div class="content">
               <p>更多{{item.name}}好物</p>
               <img
@@ -118,8 +143,19 @@ export default {
         autoplay: true,
         delay: 1000,
         loop: true,
+        click: true,
+        preventClicksPropagation: false,
         slidesPerView: 1.2, // 设置slider容器能够同时显示的slides数量
-        centeredSlides: true // active slide 居中
+        centeredSlides: true, // active slide 居中
+        on: {
+          click: () => {
+            let swiper = this.$refs.mySwiper.swiper;
+            let i = swiper.activeIndex - 2;
+            console.log(i);
+            const id = this.HomePageMSG.topicList[i].id;
+            this.$router.push(`/topicDetail/${id}}`);
+          }
+        }
       }
     };
   },
@@ -187,6 +223,7 @@ export default {
     display: flex;
     flex-direction: column;
     img {
+      display: block;
       width: 50%;
       margin-left: 25%;
     }
@@ -219,6 +256,10 @@ export default {
   .img_box {
     text-align: center;
     height: 200px;
+    a {
+      display: block;
+      @extend %full;
+    }
     img {
       height: 140px;
     }

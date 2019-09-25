@@ -26,6 +26,26 @@ export default new Router({
       // component: Login,
       component: () => import(/* webpackChunkName: "about" */ '@/views/classification/detail/index.vue'),
     },
+    {//奇趣分类
+      path: '/categorys/:id',
+      name: 'categorysetail',
+      component: () => import(/* webpackChunkName: "about" */ '@/views/classification/detail/index.vue'),
+    },
+    {//制造商
+      path: '/brandDetail/:id',
+      name: 'brandDetail',
+      component: () => import(/* webpackChunkName: "about" */ '@/views/Home/brand_detail/index.vue'),
+    },
+    {//商品详情 
+      path: '/goods/:id',
+      name: 'goodsDetail',
+      component: () => import(/* webpackChunkName: "about" */ '@/views/Home/goods_detail/index.vue'),
+    },
+    {//专题详情   
+      path: '/topicDetail/:id',
+      name: 'topicDetail',
+      component: () => import(/* webpackChunkName: "about" */ '@/views/Home/topic_detail/index.vue'),
+    },
     {
       path: '/home',
       name: 'home',
