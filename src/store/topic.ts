@@ -4,7 +4,7 @@ export default {
     namespaced: true,
 
     state: {
-        getlist:[]
+        getlist: []
     },
     getters: {
 
@@ -12,11 +12,10 @@ export default {
     mutations: {
         getTopic(state: any, dispatch: any) {
             state.getlist = dispatch
-            console.log(dispatch)
         }
     },
     actions: {
-        async getTopicList({ commit, state }: { commit: any, state: any }) {
+        async getTopicList({ commit }: { commit: any }) {
             const result = await getTopicList()
             commit('getTopic', result.data.data)
         }

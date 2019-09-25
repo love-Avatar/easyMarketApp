@@ -12,12 +12,11 @@ export default {
     mutations: {
         getGood(state: any, dispatch: any) {
             state.getgoodlist = dispatch
-            // console.log(dispatch)    
         }
     },
     actions: {
-        async getList({ commit, state }: { commit: any, state: any }) {
-            const result = await getGoodList()
+        async getList({ commit}: { commit: any },paload:any) {
+            const result = await getGoodList({categoryId:paload})
             commit('getGood', result.data.data)
         }
     }

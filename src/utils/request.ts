@@ -4,8 +4,8 @@ import { getToken } from './index';
 // import { HttpInfo } from '../types/index'
 
 const instance = axios.create({
-    baseURL: 'http://127.0.0.1:8888',
-    timeout: 1000,
+    // baseURL: 'http://127.0.0.1:8888',
+    timeout: 3000,
     headers: { 'x-nideshop-token': getToken() }
 });
 
@@ -22,7 +22,6 @@ instance.interceptors.request.use((config) => {
 // 响应拦截器
 instance.interceptors.response.use((response: AxiosResponse<any>) => {
     // Do something with response data
-    console.log('response...', response);
     if (response.status !== 200) {
         // message.error(response.statusText);
     }

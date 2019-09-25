@@ -21,10 +21,16 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ '@/views/Login.vue'),
     },
     {
-      path: '/classificationDetail',
+      path: '/classificationDetail/:id?',
       name: 'detail',
       // component: Login,
       component: () => import(/* webpackChunkName: "about" */ '@/views/classification/detail/index.vue'),
+    },
+    {
+      path: '/specialDetail/:id?',
+      name: 'specialdetail',
+      // component: Login,
+      component: () => import(/* webpackChunkName: "about" */ '@/views/special/detail/index.vue'),
     },
     {
       path: '/home',
