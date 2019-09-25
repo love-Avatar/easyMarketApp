@@ -121,6 +121,7 @@
         </div>
       </div>
     </div>
+    <Loading v-if="is_show_loading"></Loading>
   </div>
 </template>
 
@@ -131,6 +132,7 @@ import "swiper/dist/css/swiper.css";
 export default {
   data() {
     return {
+      is_show_loading: true,
       swiperOption: {
         autoplay: true,
         delay: 1000,
@@ -171,6 +173,10 @@ export default {
   },
   mounted() {
     this.getHomePageList();
+    // 切换loading
+    setTimeout(() => {
+      this.is_show_loading = false;
+    }, 1000);
   }
 };
 </script>
