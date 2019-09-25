@@ -5,8 +5,9 @@ import Vuex from 'vuex';
 // 子模块
 import login from './login';
 import home from './home';
-
-console.log(login, home)
+import topic from "./topic";
+import good from "./good";
+import catalog from "./catalog"
 Vue.use(Vuex);
 const store = new Vuex.Store({
     state: {
@@ -22,7 +23,10 @@ const store = new Vuex.Store({
      */
     modules: {
         login: login,
-        home: home
+        home: home,
+        topic:topic,
+        good:good,
+        catalog:catalog
     }
 });
 

@@ -1,16 +1,17 @@
 <template>
   <div class="subSpecial">
-    <div class="subSpecial-box">
-      <img src="https://yanxuan.nosdn.127.net/14943267735961674.jpg" />
-      <div class="topicItemTitle">关爱他成长的每一个足迹</div>
-      <div class="topicItemSubtitle">专业运动品牌同厂，毛毛虫鞋买二送一</div>
-      <div class="topicItemPrice">0元起</div>
+    <div class="subSpecial-box" v-for="item in getlist" :key="item.id">
+      <img :src="item.scene_pic_url" />
+      <div class="topicItemTitle">{{item.title}}</div>
+      <div class="topicItemSubtitle">{{item.subtitle}}</div>
+      <div class="topicItemPrice">{{item.price_info}}元起</div>
     </div>
   </div>
 </template>
-
 <script>
-export default {};
+export default {
+  props: ["getlist"]
+};
 </script>
 
 <style lang="scss" scoped>
