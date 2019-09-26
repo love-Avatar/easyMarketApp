@@ -4,6 +4,7 @@ import router from '@/router'
 import store from '@/store'
 import VueLazyLoad from 'vue-lazyload'
 import Loading from '@/components/loading'
+import Scroll from '@/components/scroll'
 import "@ast/font/iconfont.css"
 import '@scss/index.scss'
 import "@ast/my_font/iconfont.css"
@@ -14,6 +15,8 @@ Vue.use(VueLazyLoad, {
   preLoad: 1
 })
 Vue.use(Loading)
+Vue.use(Scroll)
+
 Vue.config.productionTip = false
 
 new Vue({

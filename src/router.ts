@@ -29,7 +29,7 @@ export default new Router({
     {//奇趣分类
       path: '/categorys/:id',
       name: 'categorysetail',
-      component: () => import(/* webpackChunkName: "about" */ '@/views/classification/detail/index.vue'),
+      component: () => import(/* webpackChunkName: "about" */ '@/views/Home/categorys_detail/index.vue'),
     },
     {//制造商
       path: '/brandDetail/:id',
