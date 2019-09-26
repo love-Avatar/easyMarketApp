@@ -360,7 +360,6 @@ export default {
 }
 .top_list_item:nth-child(odd) {
   border-bottom: 2px solid #f4f4f4;
-  // border-right: 1px solid #000;
 }
 .top_list_item:nth-child(even) {
   border-left: 2px solid #f4f4f4;

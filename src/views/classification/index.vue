@@ -6,7 +6,12 @@
     <div class="tab-container">
       <!-- 左侧点击列表 -->
       <div class="tab-list">
-        <div v-for="item in getlist" :key="item.id" @click="change(item)">{{item.name}}</div>
+        <div
+          v-for="item in getlist"
+          :class="[activechange==item.id?'active':'']"
+          :key="item.id"
+          @click="change(item)"
+        >{{item.name}}</div>
       </div>
       <!-- 商品列表 -->
       <div class="tab-commodity">
@@ -20,7 +25,7 @@
           <div>——</div>
         </div>
         <div class="subCategory">
-          <a href="#" v-for="item in getsublist" :key="item.id">
+          <a :href="'/classificationDetail/'+item.id" v-for="item in getsublist" :key="item.id">
             <img :src="item.wap_banner_url" />
             <div>{{item.name}}</div>
           </a>
@@ -32,12 +37,14 @@
 <script>
 import { mapState, mapMutations, mapActions } from "vuex";
 export default {
-  data(){
-    return{
-      bannerimg:"http://yanxuan.nosdn.127.net/e8bf0cf08cf7eda21606ab191762e35c.png",
-      front_name:"回家，放松身心",
-      name:"居家"
-    }
+  data() {
+    return {
+      bannerimg:
+        "http://yanxuan.nosdn.127.net/e8bf0cf08cf7eda21606ab191762e35c.png",
+      front_name: "回家，放松身心",
+      name: "居家",
+      activechange: 1005000
+    };
   },
   computed: {
     ...mapState("catalog", ["getlist", "getsublist"])
@@ -45,9 +52,11 @@ export default {
   methods: {
     ...mapActions("catalog", ["getList", "getListById"]),
     change(item) {
-      this.bannerimg = item.wap_banner_url
-      this.front_name = item.front_name
-      this.name = item.name
+      console.log(item.id);
+      this.bannerimg = item.wap_banner_url;
+      this.front_name = item.front_name;
+      this.name = item.name;
+      this.activechange = item.id;
       this.getListById(item.id);
     }
   },
@@ -160,5 +169,9 @@ export default {
       font-size: 14px;
     }
   }
+}
+.active {
+  color: #2196f3;
+  border-left: 2px solid #2196f3;
 }
 </style>

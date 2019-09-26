@@ -1,7 +1,7 @@
 <template>
   <div class="subSpecial">
     <div class="subSpecial-box" v-for="item in getlist" :key="item.id">
-      <img :src="item.scene_pic_url" />
+      <img @click="specialDetail(item.id)" :src="item.scene_pic_url" />
       <div class="topicItemTitle">{{item.title}}</div>
       <div class="topicItemSubtitle">{{item.subtitle}}</div>
       <div class="topicItemPrice">{{item.price_info}}元起</div>
@@ -10,7 +10,12 @@
 </template>
 <script>
 export default {
-  props: ["getlist"]
+  props: ["getlist"],
+  methods:{
+    specialDetail(ind){
+      this.$router.push("/specialDetail/"+ind)
+    }
+  }
 };
 </script>
 

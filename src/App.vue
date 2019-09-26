@@ -7,7 +7,6 @@
 <script>
 export default {
   created() {
-    console.log(this.$store);
   }
 };
 </script>
@@ -16,6 +15,7 @@ export default {
   margin: 0;
   padding: 0;
   list-style: none;
+  text-decoration: none;
 }
 html,
 body,
@@ -26,7 +26,4 @@ body,
 #app {
   overflow: hidden;
 }
-// html{
-//   font-size: calc(100/375*100vw)
-// }
 </style>
