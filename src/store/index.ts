@@ -8,6 +8,7 @@ import home from './home';
 import topic from "./topic";
 import good from "./good";
 import catalog from "./catalog"
+import catagorys_detail from "./catagorys_detail"
 Vue.use(Vuex);
 const store = new Vuex.Store({
     state: {
@@ -22,11 +23,12 @@ const store = new Vuex.Store({
      * 各个模块的状态store管理
      */
     modules: {
-        login: login,
-        home: home,
-        topic:topic,
-        good:good,
-        catalog:catalog
+        login,
+        home,
+        topic,
+        good,
+        catalog,
+        catagorys_detail
     }
 });
 

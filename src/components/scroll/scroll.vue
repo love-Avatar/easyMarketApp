@@ -98,9 +98,9 @@ export default {
         this.finish_pull_up();
         return;
       }
-    }
-  },
-  deep: true
+    },
+    deep: true
+  }
 };
 /**
  *  正在加载  加载完成  么有更多数据了
