@@ -1,4 +1,4 @@
-import request from "@/utils/request"
+import request from "@utils/request"
 
 // 获取分类页初始化信息
 export let getNavList = () => {
