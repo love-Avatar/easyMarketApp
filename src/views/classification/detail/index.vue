@@ -18,7 +18,7 @@
       <div>{{gettitlelist&&gettitlelist.front_name}}</div>
     </div>
     <div class="goodsList">
-      <div>
+      <!-- <div>
         <div class="goodsItem" v-for="item in getgoodlist" :key="item.id">
           <div class="goodsItemImg">
             <img :src="item.list_pic_url" />
@@ -26,14 +26,19 @@
           <div class="goodsItemName">{{item.name}}</div>
           <div class="goodsItemPrice">￥{{item.retail_price}}元</div>
         </div>
-      </div>
+      </div>-->
+      <commonScroll></commonScroll>
     </div>
   </div>
 </template>
 
 <script>
+import commonScroll from "@/components/commonScroll/index.vue";
 import { mapState, mapMutations, mapActions } from "vuex";
 export default {
+  components: {
+    commonScroll
+  },
   data() {
     return {
       activeNav: this.$route.params.id
@@ -64,6 +69,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .activeNav {
   color: #2196f3;
   border-bottom: 2px solid #2196f3;
@@ -75,46 +85,46 @@ export default {
   flex-direction: column;
   .goodsList {
     flex: 1;
-    overflow: auto;
+    overflow: hidden;
     width: 100%;
     > div {
       width: 100%;
-      height: auto;
+      // height: 100%;
     }
-    .goodsItem {
-      display: inline-block;
-      width: 50%;
-      background: white;
-      height: auto;
-      padding: 5px;
-      .goodsItemImg {
-        width: 167.5px;
-        height: 169.5px;
-        img {
-          width: 167px;
-          height: 167px;
-        }
-      }
-      .goodsItemName {
-        width: 167px;
-        text-align: center;
-        font-size: 14px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        padding-bottom: 6px;
-        padding-top: 4px;
-      }
-      .goodsItemPrice {
-        width: 167px;
-        text-align: center;
-        font-size: 14px;
-        overflow: hidden;
-        padding-bottom: 6px;
-        padding-top: 4px;
-        color: red;
-      }
-    }
+    // .goodsItem {
+    //   display: inline-block;
+    //   width: 50%;
+    //   background: white;
+    //   height: auto;
+    //   padding: 5px;
+    //   .goodsItemImg {
+    //     width: 167.5px;
+    //     height: 169.5px;
+    //     img {
+    //       width: 167px;
+    //       height: 167px;
+    //     }
+    //   }
+    //   .goodsItemName {
+    //     width: 167px;
+    //     text-align: center;
+    //     font-size: 14px;
+    //     overflow: hidden;
+    //     text-overflow: ellipsis;
+    //     white-space: nowrap;
+    //     padding-bottom: 6px;
+    //     padding-top: 4px;
+    //   }
+    //   .goodsItemPrice {
+    //     width: 167px;
+    //     text-align: center;
+    //     font-size: 14px;
+    //     overflow: hidden;
+    //     padding-bottom: 6px;
+    //     padding-top: 4px;
+    //     color: red;
+    //   }
+    // }
   }
   .detail-header {
     width: 100%;
