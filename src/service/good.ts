@@ -1,4 +1,4 @@
-import request from "@/utils/request"
+import request from "@utils/request"
 
 
 // 根据分类Id或者制造商Id获取商品

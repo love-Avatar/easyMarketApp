@@ -17,7 +17,7 @@
         class="nav_item"
         v-for="item in HomePageMSG.channel"
         :key="item.id"
-        @click="$router.push(`/categorys/${item.id}}`)"
+        @click="$router.push(`/categorys/${item.id}`)"
       >
         <img v-lazy="item.icon_url" alt class="img_icon" />
         <span>{{item.name}}</span>

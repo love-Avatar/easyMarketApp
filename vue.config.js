@@ -3,6 +3,19 @@ function resolve(dir) {
     return path.join(__dirname, dir);
 }
 module.exports = {
+    // // 生产环境是否生成 sourceMap 文件
+    productionSourceMap: false,
+    // css相关配置
+    css: {
+        // 是否使用css分离插件 ExtractTextPlugin
+        extract: true,
+        // 开启 CSS source maps?
+        sourceMap: false,
+        // css预设器配置项
+        loaderOptions: {},
+        // 启用 CSS modules for all css / pre-processor files.
+        modules: false
+    },
     lintOnSave: true,
     chainWebpack: config => {
         // @scss是你取的静态资源路径别名
@@ -16,6 +29,22 @@ module.exports = {
             .set('@store', resolve('src/store'))
             .set('@', resolve('src'))
         // 先用@/的方式  其他的没生效
+
+        // if (process.env.NODE_ENV === 'production') {
+        //     config
+        //         .plugin('uglify')
+        //         .tap(([options]) => {
+        //             // 去除 console.log
+        //             return [Object.assign(options, {
+        //                 uglifyOptions: {
+        //                     compress: {
+        //                         drop_console: true,
+        //                         pure_funcs: ['console.log']
+        //                     }
+        //                 }
+        //             })]
+        //         })
+        // }
     },
     css: {
         loaderOptions: {
