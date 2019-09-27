@@ -23,40 +23,43 @@ export default {
   props: {
     list: {
       required: true,
-      type: Object,
-      //   query?: {[key:string]:any}, 查询条件
-      query: {
-        type: Object,
-        required: false
-      },
-      // limit?: number, 每次查询的数量 默认10
-      limit: {
-        type: Number,
-        required: false,
-        default: 10
-      },
-      // count: number, 最后一次查询结果返回的长度 用来控制loadMore的显示与否
-      count: {
-        type: Number,
-        required: true
-      },
-      // refreshDispatch?: string pull-refresh 查询的store dispacthName, 当需要下拉刷新的时候才传
-      refreshDispatch: {
-        type: Function,
-        required: false
-      },
-      // loadMoreDispatch: string loadMore 查询的store dispacthName
-      loadMoreDispatch: {
-        type: Function,
-        required: true
-      },
-      // value: Array<{[key:string]:any}> 查询结果  渲染结果
-      value: {
-        type: Array
-        //   required: true
-      }
+      default: () => ({
+        //   query?: {[key:string]:any}, 查询条件
+        query: {
+          type: Object,
+          required: false
+        },
+        // limit?: number, 每次查询的数量 默认10
+        limit: {
+          type: Number,
+          required: false,
+          default: 10
+        },
+        // count: number, 最后一次查询结果返回的长度 用来控制loadMore的显示与否
+        count: {
+          type: Number,
+          required: true
+        },
+        // refreshDispatch?: string pull-refresh 查询的store dispacthName, 当需要下拉刷新的时候才传
+        refreshDispatch: {
+          type: Function,
+          required: false
+        },
+        // loadMoreDispatch: string loadMore 查询的store dispacthName
+        loadMoreDispatch: {
+          type: Function,
+          required: true
+        },
+        // value: Array<{[key:string]:any}> 查询结果  渲染结果
+        value: {
+          type: Array
+          //   required: true
+        }
+      })
     }
   },
+
+  // 加载过程中滑动时   loading 动画还存在
   mounted() {
     const eleScroll = this.$refs.scroll_wrapper;
     // 实例化
@@ -75,13 +78,13 @@ export default {
       this.is_pull_down = true;
       const result = await this.list.refreshDispatch(this.list.query);
       if (result) {
-        this.is_pull_down = false;
         this.value = result; //替换数据
-      } else {
-        this.is_pull_down = false;
       }
-      this.scroll.finishPullDown();
-      this.scroll.refresh();
+      setTimeout(() => {
+        this.is_pull_down = false;
+        this.scroll.finishPullDown();
+        this.scroll.refresh();
+      }, 300);
       //   this.set_timeout_lock(); //超时锁设置  loading 设置
     });
     //监听上拉加载
@@ -89,13 +92,13 @@ export default {
       this.is_pull_up = true;
       const result = await this.list.refreshDispatch(this.list.query);
       if (result) {
-        this.is_pull_up = false;
         this.value = result; //替换数据
-      } else {
-        this.is_pull_down = false;
       }
-      this.scroll.finishPullUp();
-      this.scroll.refresh();
+      setTimeout(() => {
+        this.is_pull_up = false;
+        this.scroll.finishPullUp();
+        this.scroll.refresh();
+      }, 200);
       //   this.set_timeout_lock(); //超时锁设置
     });
   }

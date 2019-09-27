@@ -36,8 +36,14 @@ instance.interceptors.request.use((config) => {
 // 响应拦截器
 instance.interceptors.response.use((response: AxiosResponse<any>) => {
     // Do something with response data
+    console.log(response)
+    // sessionKey
     if (response.status !== 200) {
         // message.error(response.statusText);
+    }
+    if (response.data.data.sessionKey) {
+        // localStorage.token = response.data.sessionKey
+        window.localStorage.setItem('token', response.data.data.sessionKey)
     }
     return response.data;
 }, (error) => {

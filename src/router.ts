@@ -10,7 +10,7 @@ import My from "@/views/my/index.vue"
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -104,3 +104,19 @@ export default new Router({
     }
   ]
 })
+
+console.log(router, 'router')
+router.beforeEach((to, from, next) => {
+  console.log(to, 'to-----/n', from, 'from---/n', next)
+  const token = window.localStorage.getItem('token')
+  if (token) {
+    next()
+  } else {
+    if (to.path === '/') {
+      next()
+    } else {
+      next('/')
+    }
+  }
+})
+export default router
