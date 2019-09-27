@@ -20,6 +20,13 @@ export default new Router({
       // component: Login,
       component: () => import(/* webpackChunkName: "about" */ '@/views/Login.vue'),
     },
+    //留言板
+    {
+      path: '/message',
+      name: 'message',
+      // component: Login,
+      component: () => import(/* webpackChunkName: "about" */ '@/views/special/detail/message/index.vue'),
+    },
     {
       path: '/classificationDetail/:id?',
       name: 'detail',
