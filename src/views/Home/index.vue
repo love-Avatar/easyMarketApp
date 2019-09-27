@@ -32,7 +32,7 @@
           class="img_box"
           v-for="item in HomePageMSG.brandList"
           :key="item.id"
-          @click="$router.push(`/brandDetail/${item.id}}`)"
+          @click="$router.push(`/brandDetail/${item.id}`)"
         >
           <img v-lazy="item.new_pic_url" alt="ss" />
         </div>
@@ -47,7 +47,7 @@
           class="img_box"
           v-for="item in HomePageMSG.newGoodsList"
           :key="item.id"
-          @click="$router.push(`/goods/${item.id}}`)"
+          @click="$router.push(`/goods/${item.id}`)"
         >
           <img v-lazy="item.list_pic_url" alt="ss" />
           <p>{{item.name}}</p>
@@ -64,7 +64,7 @@
           class="img_box"
           v-for="item in HomePageMSG.hotGoodsList"
           :key="item.id"
-          @click="$router.push(`/goods/${item.id}}`)"
+          @click="$router.push(`/goods/${item.id}`)"
         >
           <img v-lazy="item.list_pic_url" alt="ss" />
           <div class="details">
@@ -102,7 +102,7 @@
             class="top_list_item"
             v-for="it in item.goodsList"
             :key="it.id"
-            @click="$router.push(`/goods/${item.id}}`)"
+            @click="$router.push(`/goods/${item.id}`)"
           >
             <img v-lazy="it.list_pic_url" alt="ss" />
             <p>{{it.name}}</p>
