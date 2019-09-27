@@ -90,4 +90,24 @@ export default {
     padding-right: 20px;
   }
 }
+.down_refresh {
+  position: relative;
+  z-index: 999;
+  width: 100%;
+  height: 50px;
+  line-height: 50%;
+  font-size: 18px;
+  color: red;
+  text-align: center;
+}
+.upload_more {
+  position: relative;
+  z-index: 999;
+  width: 100%;
+  height: 50px;
+  line-height: 50%;
+  font-size: 18px;
+  color: red;
+  text-align: center;
+}
 </style>

@@ -1,7 +1,12 @@
 <template>
   <div class="categorys">
     categorys
-    <Scroll class="scroll_wrapper" :handleRefresh="handleRefresh" :handleLoadMore="handleLoadMore">
+    <Scroll
+      class="scroll_wrapper"
+      :handleRefresh="handleRefresh"
+      :handleLoadMore="handleLoadMore"
+      :value="goodslist"
+    >
       <div class="scroll_item" v-for="(item,index) in goodslist" :key="index">{{item.name}}</div>
     </Scroll>
   </div>
@@ -23,15 +28,15 @@ export default {
   methods: {
     handleRefresh() {
       console.log("handleRefresh");
-      setTimeout(() => {
-        this.goodslist = [
-          { id: 1, name: "1234" },
-          { id: 2, name: "2234" },
-          { id: 3, name: "3234" },
-          { id: 4, name: "4234" }
-        ];
-        console.log(this.goodslist.length);
-      }, 1000);
+      // setTimeout(() => {
+      //   this.goodslist = [
+      //     { id: 1, name: "1234" },
+      //     { id: 2, name: "2234" },
+      //     { id: 3, name: "3234" },
+      //     { id: 4, name: "4234" }
+      //   ];
+      //   console.log(this.goodslist.length);
+      // }, 5000);
     },
     handleLoadMore() {
       console.log("handleLoadMore");
