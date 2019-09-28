@@ -3,12 +3,12 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 // import type from './mutation-type';
 // 子模块
-import login from './login';
-import home from './home';
-import topic from "./topic";
-import good from "./good";
-import catalog from "./catalog"
-import catagorys_detail from "./catagorys_detail"
+import login from './model/login';
+import home from './model/home';
+import topic from "./model/topic";
+import good from "./model/good";
+import catalog from "./model/catalog"
+import catagorys_detail from "./model/catagorys_detail"
 Vue.use(Vuex);
 const store = new Vuex.Store({
     state: {
@@ -33,16 +33,3 @@ const store = new Vuex.Store({
 });
 
 export default store;
-
-
-// // 本地商店storage命名规则 以__分隔
-// this.$store.state.cache.routeUrl		// 拿取state中的值
-// this.$store.getters['cache/routeUrl']	// 执行getters中的方法
-// ...mapGetters({
-//     routeUrl: "cache/routeUrl"
-// })
-
-
-// this.$store.commit('cache/routeUrl', url);	// 执行mutations中的方法
-// ...mapMutations({							// 执行mutations中的方法
-//     routeUrl: "cache/routeUrl"
